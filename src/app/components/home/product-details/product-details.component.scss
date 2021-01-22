@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+  }
+  
+  th {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+  }
+  
+  td {
+    text-align: left;
+    font-size: 12px;
+  }
+  
+  tr.mat-row {
+    height: 45px;
+  }
+
+  input{
+    border-radius: 16px;
+}
+  
+.desc-css{
+    width:57%;
+    padding-right: 15px;
+}

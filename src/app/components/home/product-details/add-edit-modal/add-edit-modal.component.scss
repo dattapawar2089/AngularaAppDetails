@@ -1,0 +1,75 @@
+.header-div{
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 15px;
+}
+
+.title-css{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+form{
+    padding: 16px;
+}
+
+.material-form {
+    /* min-width: 150px;
+    max-width: 600px; */
+    width: 100%;
+  }
+
+/* ::ng-deep .mat-dialog-container{
+    padding: 15px;
+} */
+
+label{
+    font-weight: 500;
+    font-size: 13px;
+}
+
+
+.btn-div{
+    display: flex;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+.material-form {
+    /* min-width: 150px;
+    max-width: 600px; */
+    width: 100%;
+  }
+  
+.err-msg{
+    color: red;
+}
+
+.dropdown-css{
+    width: 100%;
+}
+
+
+::ng-deep .cdk-global-overlay-wrapper {
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+    overflow: auto;
+    pointer-events: auto;  
+  }
+
+
+  ::ng-deep .cdk-global-overlay-wrapper mat-dialog-container{
+    border-radius: 0px;
+    padding: 0px;
+  }
+  
+  ::ng-deep .cdk-global-overlay-wrapper mat-dialog-container{
+    border-bottom: 15px solid black;
+  }
+  
+  /* ::ng-deep .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    opacity: 0.8;
+    background: var(--primary-blue);
+  } */

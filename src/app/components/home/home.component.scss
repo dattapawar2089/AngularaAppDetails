@@ -1,0 +1,22 @@
+mat-tab-group{
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    background-color: white;
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: blue;
+}
+
+::ng-deep .mat-tab-label.mat-tab-label-active{
+    color: blue;
+    opacity: 1;
+}
+
+::ng-deep .mat-tab-label-content{
+    font-size: 17px;
+}
+
+::ng-deep .mat-tab-body{
+    padding: 25px;
+}

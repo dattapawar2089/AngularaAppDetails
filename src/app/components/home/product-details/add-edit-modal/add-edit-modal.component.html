@@ -1,0 +1,124 @@
+<div *ngIf="loader">
+    <div class="overlay">
+        <div class="spinner-wrapper">
+            <app-loader></app-loader>
+
+        </div>
+    </div>
+</div>
+<div class="dialog-div">
+    <div class="row">
+        <div class="container-fluid header-div">
+            <div>
+                <span class="title-css">{{data.action}} Product</span>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <form [formGroup]="prodDetailsForm" class="material-form" [class.blurred]="!loader">
+
+            <div class="row">
+                <div class="col-md-6 form-group">
+
+                    <mat-form-field class="material-full-width">
+                        <mat-label>Product Name<span style="color: red;">*</span></mat-label>
+                        <input formControlName="name" pattern="^[a-zA-Z0-9 ]*$" matInput>
+                    </mat-form-field>
+                    <div *ngIf="prodDetailsForm.controls.name.errors && prodDetailsForm.controls.name.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.name.errors.required" class="errormsg">
+                            Required
+                        </div>
+                    </div>
+                    <div *ngIf="prodDetailsForm.controls.name.errors && prodDetailsForm.controls.name.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.name.errors.pattern" class="errormsg">
+                            Product Name should be Alphanumeric.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <mat-form-field class="material-full-width">
+                        <mat-label>Price<span style="color: red;">*</span></mat-label>
+                        <input formControlName="price" pattern="[0-9]+(\.[0-9]{1,2})?%?" matInput>
+                    </mat-form-field>
+                    <div *ngIf="prodDetailsForm.controls.price.errors && prodDetailsForm.controls.price.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.price.errors.required" class="errormsg">
+                            Required
+                        </div>
+                    </div>
+                    <div *ngIf="prodDetailsForm.controls.price.errors && prodDetailsForm.controls.price.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.price.errors.pattern" class="errormsg">
+                            Price should be Number.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <mat-form-field class="material-full-width">
+                        <mat-label>Quantity<span style="color: red;">*</span></mat-label>
+                        <input formControlName="quantity" pattern="^[0-9]\d*$" matInput>
+                    </mat-form-field>
+                    <div *ngIf="prodDetailsForm.controls.quantity.errors && prodDetailsForm.controls.quantity.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.quantity.errors.required" class="errormsg">
+                            Required
+                        </div>
+                    </div>
+                    <div *ngIf="prodDetailsForm.controls.quantity.errors && prodDetailsForm.controls.quantity.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.quantity.errors.pattern" class="errormsg">
+                            Price should be Number.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+
+                    <mat-form-field class="material-full-width">
+                        <mat-label>Description<span style="color: red;" *ngIf="data.action =='Add'">*</span></mat-label>
+                        <!-- <input formControlName="description" matInput> -->
+                        <textarea matInput formControlName="description" cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+                    </mat-form-field>
+                    <div *ngIf="prodDetailsForm.controls.description.errors && prodDetailsForm.controls.description.touched"
+                        class="text-danger">
+                        <div *ngIf="prodDetailsForm.controls.description.errors.required" class="errormsg">
+                            Required
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+            <input type="hidden" autofocus="autofocus" />
+            <div class="err-msg" *ngIf="errorMsg">
+                {{errorMsg}}
+            </div>
+        </form>
+
+        <div class="btn-div">
+            <div class="col-md-2 offset-md-8 form-group">
+                <button *ngIf="data.action == 'Add'"
+                    [attr.disabled]="prodDetailsForm.invalid? true: null"
+                    class="btn btn-primary action-btn" (click)="saveProduct();">Save
+                </button>
+                <button *ngIf="data.action == 'View/Edit'"
+                    [attr.disabled]="prodDetailsForm.invalid? true: null"
+                    class="btn btn-primary action-btn" (click)="updateProduct();">Update
+                </button>
+            </div>
+            <div class="col-md-2 form-group"><button (click)="close()"
+                    class="btn btn-primary action-btn cls-css">Cancel</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
